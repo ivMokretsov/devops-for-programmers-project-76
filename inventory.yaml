@@ -1,0 +1,13 @@
+all:
+  children:
+    webservers:
+      vars:
+        ansible_user: ubuntu
+        ansible_ssh_private_key_file: ../ubuntu-STD2-1-1-10GB-glrftfxG.pem
+
+      hosts:
+        server1:
+          ansible_host: 83.166.233.170
+
+        server2:
+          ansible_host: 83.166.233.151

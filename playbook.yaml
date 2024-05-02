@@ -1,0 +1,9 @@
+---
+- name: Install Pip and Docker(pip) on All Servers
+  hosts: all
+  become: true
+  roles:
+    - role: geerlingguy.pip
+      vars:
+        pip_install_packages:
+          - name: docker
