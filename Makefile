@@ -5,4 +5,4 @@ install:
 	ansible-galaxy install -r requirements.yaml --ignore-certs
 
 run:
-	ansible-playbook -i inventory.yaml playbook.yaml
+	ansible-playbook -i inventory.yaml playbook.yaml --vault-password-file vault_pass

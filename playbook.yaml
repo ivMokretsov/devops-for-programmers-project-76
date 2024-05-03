@@ -1,9 +1,27 @@
 ---
-- name: Install Pip and Docker(pip) on All Servers
+- name: Deploy Redmine on All Servers
   hosts: all
   become: true
+  vars_files:
+    - group_vars/db_secrets.yaml
   roles:
     - role: geerlingguy.pip
       vars:
         pip_install_packages:
           - name: docker
+
+  tasks:
+    - name: Create .env file for Redmine
+      ansible.builtin.template:
+        src: .env.j2
+        dest: /tmp/.env
+
+    - name: Run Redmine container
+      community.docker.docker_container:
+        name: redmine
+        image: redmine
+        state: started
+        restart_policy: always
+        published_ports:
+          - "3000:3000"
+        env_file: /tmp/.env
