@@ -1,5 +1,5 @@
 ---
-- name: Install Docker and Pip
+- name: Install Docker
   hosts: webservers
   become: true
   roles:
