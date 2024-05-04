@@ -1,9 +1,19 @@
 ---
-- name: Deploy Redmine
+- name: Install Docker and Pip
   hosts: all
   become: true
   roles:
     - install_docker
     - geerlingguy.pip
+
+- name: Deploy Redmine
+  hosts: all
+  become: true
+  roles:
     - deploy_redmine
+
+- name: Configure DataDog
+  hosts: webservers
+  become: true
+  roles:
     - DataDog.datadog
