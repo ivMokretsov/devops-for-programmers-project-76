@@ -2,8 +2,6 @@
 - name: Deploy Redmine on All Servers
   hosts: all
   become: true
-  vars_files:
-    - group_vars/db_secrets.yaml
   roles:
     - role: geerlingguy.pip
       vars:
