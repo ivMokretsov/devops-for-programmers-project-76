@@ -6,3 +6,4 @@
     - install_docker
     - geerlingguy.pip
     - deploy_redmine
+    - DataDog.datadog
