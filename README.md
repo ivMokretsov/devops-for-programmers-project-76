@@ -12,8 +12,7 @@
 ### Шаги для деплоя приложения Redmine:
 
 1) Cклонировать репозиторий и перейти в директорию проекта
-2) В inventory.yml добавить сервера, на которых будет развернут сервис
-можно проверить доступность серверов:
+2) В inventory.yml добавить сервера, на которых будет развернут сервис. Можно проверить доступность серверов:
     ```
     make ping-hosts
     ```
@@ -24,6 +23,7 @@
 4) В директории проекта создать файл vault_pass и записать в него свой пароль
 В файл group_vars/webservers/vault.yml добавить секреты
     >REDMINE_DB_PASSWORD_VAULT: <REDMINE_DB_PASSWORD>
+
     >datadog_api_key_vault: <datadog_api_key>
 
     Зашифровать файл командой:
@@ -32,7 +32,9 @@
     ```
 5) В файле group_vars/webservers/vars.yml указать переменные для базы данных:
     >REDMINE_DB_POSTGRES: <db_ip>
+
     >REDMINE_DB_USERNAME: <db_user>
+    
     >REDMINE_DB_DATABASE: <db_name>
 
 6) Запустить деплой командой:
