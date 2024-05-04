@@ -1,6 +1,10 @@
+# Переменные для роли geerlingguy.pip
 pip_package: python3-pip
 pip_executable: pip3
+pip_install_packages:
+  - name: docker
 
+# Переменные для роли deploy_redmine
 REDMINE_DB_POSTGRES: 10.0.0.240
 REDMINE_DB_USERNAME: admin
 REDMINE_DB_PASSWORD: "{{ REDMINE_DB_PASSWORD_VAULT }}"
